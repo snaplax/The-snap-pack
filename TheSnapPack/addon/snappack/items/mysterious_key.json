@@ -1,0 +1,14 @@
+{
+    "type": "palladium:default",
+    "max_stack_size": 1,
+  "rarity": "epic",
+  "is_fire_resistant": true,
+  "tooltip": [
+    "Mysterious Key",
+    {
+      "text": "Use this Item to open a Mysterious door",
+      "underlined": false,
+      "color": "#FFFFFF"
+    }
+  ]
+}

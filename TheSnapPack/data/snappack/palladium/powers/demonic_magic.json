@@ -1,0 +1,344 @@
+{
+    "name": "Demonic Magic",
+    "persistent_data": true,
+    "background": "minecraft:textures/block/soul_sand.png",
+    "icon": "snappack:textures/icon/demonism.png",
+    "gui_display_type": "tree",
+    "abilities": {
+        "syncronisitywave":{
+                "type": "palladium:command",
+        "icon": "minecraft:command_block",
+        "title": "Syncronisity Wave",
+        "bar_color": "red",
+        "hidden": false,
+        "hidden_in_bar": true,
+        "list_index": -1,
+        "gui_position": [0, -1],
+        "description": "A Demonologist's natural talent for being in the right place at the right time.",
+        "first_tick_commands": [
+          
+             "execute as @s at @s run effect give @s minecraft:luck infinite 10 true"
+        ],
+        "last_tick_commands": [
+        ],
+        "commands": [],
+        "conditions": {
+                "unlocking": [
+                    {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                "type": "palladium:has_effect",
+                "effect": "fsang:genetic_dampening"
+              }
+
+                        ]
+                    }
+                ],
+                "enabling": [ {"type": "palladium:not",
+                        "conditions": [
+                            {
+                                "type": "palladium:has_effect",
+                                "effect": "minecraft:luck"
+                            }
+                        ]
+                    }
+                ]
+            }
+      },
+      "spellwheel":{
+          "type": "palladium:ability_wheel",
+          "icon": "snappack:textures/icon/demonism.png",
+          "title": "spells",
+          "bar_color": "red",
+          "hidden": true,
+          "hidden_in_bar": false,
+          "list_index": -1,
+          "gui_position": "null",
+          "description": "null",
+          "abilities": [
+              "firefists",
+              "firefling",
+              "Blinding Blessing",
+              "expfireball"
+          ],
+          "texture": "null",
+          "disable_mouse_scrolling": false,
+          "disable_center_icon": false,
+          "conditions": {
+              "enabling": [ 
+                  {
+               "type": "palladium:held",
+                   "cooldown": 75,
+                    "key_type": "key_bind",
+                      "needs_empty_hand": true
+                                    
+              }
+ 
+              ],
+              "unlocking": [{
+                                    "type": "palladium:not",
+                                    "conditions": [{
+                                        "type": "palladium:has_effect",
+                                        "effect": "fsang:metaphysical_dampening"
+                                    }]
+                                }]
+          }
+      },
+      "firefists":{
+        
+            "type": "palladium:fire_aspect",
+            "icon": "minecraft:flint_and_steel",
+            "title": "Enflamed Fisticuffs",
+            "bar_color": "light_gray",
+            "hidden": false,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": [0, -2],
+            "description": "null",
+            "time": 5,
+            "should_stack_time": true,
+            "max_time": 20,
+            "conditions": {
+                "enabling": [ {
+                    "type": "palladium:toggle",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                }],
+                "unlocking": [
+                                        {
+                                            "type": "palladium:item_buyable",
+                                            "ingredient": {
+                                                "item": "minecraft:blaze_powder"
+                                            },
+                                            "amount": 15
+                                        }, {
+                                    "type": "palladium:not",
+                                    "conditions": [{
+                                        "type": "palladium:has_effect",
+                                        "effect": "fsang:metaphysical_dampening"
+                                    }]
+                                }
+
+                ]
+            }
+        },
+        "DemonicDummy":{
+            "type": "palladium:dummy",
+            "icon": "minecraft:blaze_rod",
+            "title": "The Art of the Occult",
+            "bar_color": "light_gray",
+            "hidden": false,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": [0,0],
+            "description": "Ordinary people, they operate within a certain set of parameters, right? Rules. Limits. Then there's blokes like me, yeah? We cheat.",
+            "conditions": {
+                "enabling": [],
+                "unlocking": []
+            }
+        },
+        "firefists2":{
+            "type": "palladium:command",
+            "icon": "minecraft:command_block",
+            "title": "Fireball",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "gui_position": "null",
+            "description": "null",
+            "first_tick_commands": ["execute as @s at @s run attribute @s minecraft:generic.attack_knockback base set 0.75"],
+            "last_tick_commands": ["execute as @s at @s run attribute @s minecraft:generic.attack_knockback base set 0"],
+            "commands": [
+                "execute as @s at @s run particle minecraft:falling_lava ~ ~1 ~ 0.5 0.5 0.5 0.01 1 force",
+                "execute as @s at @s run particle minecraft:flame ~ ~0.75 ~ 0.1 0.1 0.1 0.01 1 normal",
+                "effect give @s strength 1 1 true"
+            ],
+            "conditions": {
+                "enabling": [
+             
+          {
+           "type": "palladium:or",
+                   "conditions": [{
+               "type": "palladium:ability_enabled",
+               "power": "snappack:demonic_magic",
+                "ability": "firefling"
+             },
+            {
+                     "type": "palladium:ability_enabled",
+                     "power": "snappack:demonic_magic",
+                     "ability": "firefists"}
+            ]
+          }
+                                                                                                
+                    
+                ],
+                "unlocking": [
+                                        {
+                                            "type": "palladium:ability_unlocked",
+                                            "power": "snappack:demonic_magic",
+                                            "ability": "firefists"
+                                        }
+                ]
+            }
+        },
+        "fireball": {
+           "type": "palladium:projectile",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "title":"",
+      "icon": "minecraft:blaze_powder",
+      "description":"",
+      "list_index": -1,
+      "entity_type": "palladium:custom_projectile",
+      "entity_data": {
+        "Damage": 7.5,
+        "Gravity": 0.00,
+        "Lifetime": 20,
+        "SetEntityOnFireSeconds": 2.5,
+        "CommandOnBlockHit": "function fsang:block_smelt",
+        "Tags": [
+          "FSang.Pyrokinesis.Projectile"
+        ]
+      },
+      "inaccuracy": 2,
+      "velocity": 2.0,
+      "swinging_arm": "both",
+      "conditions": {
+        "unlocking": [
+          {
+                      
+                          "type": "palladium:ability_enabled",
+                          "power": "snappack:demonic_magic",
+                          "ability": "firefling"
+                      
+          }
+        ],
+        "enabling": [
+                        {
+                            "type": "palladium:action",
+                            "cooldown": 0,
+                            "key_type": "left_click",
+                            "needs_empty_hand": true,
+                            "allow_scrolling_when_crouching": true
+                        }
+        ]
+      }
+    },
+    "Blinding Blessing": {
+        "type": "palladium:command",
+        "icon": "minecraft:command_block",
+        "title": "Blinding Blessing",
+        "bar_color": "light_gray",
+        "hidden": false,
+        "hidden_in_bar": true,
+        "list_index": -1,
+        "gui_position": [0, 1],
+        "description": "Relase a blast of blinding light straight from the pearly gates",
+        "first_tick_commands": ["execute as @s at @s run particle minecraft:explosion_emitter ~ ~ ~ 0 0.1 0 0 5 force"],
+        "last_tick_commands": ["effect clear @s minecraft:blindness",
+    "effect clear @s minecraft:darkness",
+"execute as @s at @s run particle minecraft:end_rod ~ ~ ~ 5 0 0.1 0 100 force"],
+        "commands": [
+            "execute as @s at @s run particle minecraft:explosion_emitter ~ ~ ~ 0 0 0.5 0 5 force",
+            "execute at @s run effect give @e[distance=..10] minecraft:blindness 30 255 false",
+"execute at @s run effect give @e[distance=..15] minecraft:darkness 45 1 false",
+"execute at @s run effect give @e[palladium.power=fsang:spirit_of_vengence] minecraft:instant_damage 1 1 false",
+"execute at @s run effect give @e[palladium.power=gabeupsp:pseudo_vampire] minecraft:instant_damage 1 1 false",
+"execute at @s run effect give @e[palladium.power=gabeupsp:werewolf] minecraft:instant_damage 1 1 false"
+        ],
+        "conditions": {
+            "enabling": [
+                                
+                                                                      {
+                                                                          "type": "palladium:ability_wheel",
+                                                                          "cooldown": 550
+                                                                      }
+                                
+            ],
+            "unlocking": [
+                                {
+                                    "type": "palladium:not",
+                                    "conditions": [{
+                                        "type": "palladium:has_effect",
+                                        "effect": "fsang:metaphysical_dampening"
+                                    }]
+                                }
+            ]
+        }
+    },
+    "expfireball": {
+        "type": "palladium:command",
+        "icon": "minecraft:tnt",
+        "title": "Fireball",
+        "bar_color": "light_gray",
+        "hidden": false,
+        "hidden_in_bar": true,
+        "list_index": -1,
+        "gui_position": [0, -4],
+        "description": "null",
+        "first_tick_commands": [],
+        "last_tick_commands": [],
+        "commands": [
+            "summon fireball ~ ~1.5 ~ {ExplosionPower:3}"
+        ],
+        "conditions": {
+            "enabling": [
+                                
+                                                                        {
+                                                                            "type": "palladium:ability_wheel",
+                                                                            "cooldown": 1000
+                                                                        }
+                                
+            ],
+            "unlocking": [{
+                                    "type": "palladium:not",
+                                    "conditions": [{
+                                        "type": "palladium:has_effect",
+                                        "effect": "fsang:metaphysical_dampening"
+                                    }]
+                                }]
+        }
+    },
+    "firefling":{
+        "type": "palladium:dummy",
+        "icon": "minecraft:blaze_powder",
+        "title": "Hellfire Chuck",
+        "bar_color": "light_gray",
+        "hidden": false,
+        "hidden_in_bar": true,
+        "list_index": -1,
+        "gui_position": [0,-3],
+        "description": "Launch a ball of Hellfire at your enemies",
+        "conditions": {
+            "enabling": [ 
+                                                      {
+                                                          "type": "palladium:activation",
+                                                          "cooldown": 1000,
+                                                          "ticks": 100,
+                                                          "key_type": "key_bind",
+                                                          "needs_empty_hand": true,
+                                                          "allow_scrolling_when_crouching": true
+                                                      }
+                        ],
+            "unlocking": [{
+                                    "type": "palladium:not",
+                                    "conditions": [{
+                                        "type": "palladium:has_effect",
+                                        "effect": "fsang:metaphysical_dampening"
+                                    }]
+                                }]
+        }
+    }
+           
+        }
+    }
+      
+                
+            
+        
+
+    
