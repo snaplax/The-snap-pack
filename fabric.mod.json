@@ -1,0 +1,13 @@
+{
+    "schemaVersion": 1,
+    "authors": [
+        "Snaplax & co"
+    ],
+    "environment": "*",
+    "id": "snappack",
+    "version": "1.0.0",
+    "name": "The SnapPack",
+    "description": "Snaplax's addon for Palladium",
+    "icon": "logo.png",
+    "license": "All rights reserved"
+}

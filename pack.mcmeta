@@ -1,0 +1,8 @@
+{
+    "pack": {
+        "id": "snappack",
+        "pack_format": 15,
+        "description": "Snaplax's addon for Palladium",
+        "version": "1.0.0"
+    }
+}
