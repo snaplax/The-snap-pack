@@ -1,24 +1,27 @@
 {
     "name": "house of mysteries",
     "persistent_data": true,
-    "background": "minecraft:textures/block/white_wool.png",
-    "icon": "minecraft:wither_skeleton_skull",
-    "gui_display_type": "tree",
+    "background": "minecraft:textures/block/coal_block.png",
+    "icon": "snappack:textures/item/mysterious_key.png",
+    "gui_display_type": "list",
     "abilities": {
 "gotohouse":{
      "type": "palladium:command",
-     "icon": "minecraft:command_block",
-     "title": "Enter",
+     "icon": "snappack:textures/item/mysterious_key.png",
+     "title": "Enter the House of Mysteries",
      "bar_color": "yellow",
      "hidden": false,
      "hidden_in_bar": true,
      "list_index": 0,
      "gui_position": [0, -1],
-     "description": "Enter the House of Mysteries",
-     "first_tick_commands": [],
-     "last_tick_commands": [],
+     "description": "Crouch and right click on a door",
+     "first_tick_commands": ["playsound minecraft:block.ender_chest.open master @a[distance=..10] ~ ~ ~ 10 0",
+        "execute as @s at @s run particle minecraft:end_rod ~ ~0.25 ~ 2 0 2 0 100 force",
+    "execute as @s at @s run particle minecraft:enchant ~ ~2 ~ 1 0 1 0 100 force"],
+     "last_tick_commands": ["playsound minecraft:block.ender_chest.open master @a[distance=..10] ~ ~ ~ 10 0",
+    "fill ~ ~ ~ ~ ~1 ~ minecraft:dark_oak_door keep"],
      "commands": [
-         "execute in fsang:pocket_dimension run tp 6 72 6"
+         "execute as @s in fsang:pocket_dimension run tp 6 72 6"
 
      ],
      "conditions": {
@@ -31,33 +34,40 @@
                          "allow_scrolling_when_crouching": true
                         }
          ],
-         "unlocking": [         {
+         "unlocking": [               {
+                   "type": "palladium:and",
+                   "conditions": [ {
                    "type": "palladium:not",
                    "conditions": [{
                          "type": "palladium:dimension",
                          "dimension": "fsang:pocket_dimension"
-                        },{
-                            "type": "palladium:crouching"
-                        }]
-                  }
+                        }]}, {
+                            "type": "fsang:block_search",
+                            "block_id": "minecraft:dark_oak_door",
+                            "search_radius": 1
+                        } 
+                                                                       ]
+                  }  
                         
          ]
      }
  },
  "leavehouse":{
      "type": "palladium:command",
-     "icon": "minecraft:dirt",
-     "title": "Enter",
+     "icon": "snappack:textures/item/mysterious_key.png",
+     "title": "Exit the House of Mysteries",
      "bar_color": "yellow",
      "hidden": false,
      "hidden_in_bar": true,
      "list_index": 0,
      "gui_position": [0, 1],
-     "description": "Exit the House of Mysteries",
-     "first_tick_commands": [],
-     "last_tick_commands": ["execute in minecraft:overworld run tp @s ~ ~100 ~"],
+     "description": "Crouch and right click on a door",
+     "first_tick_commands": ["playsound minecraft:block.ender_chest.close master @a[distance=..10] ~ ~ ~ 10 0",
+        "execute as @s at @s run particle minecraft:end_rod ~ ~0.25 ~ 2 0 2 0 100 force",
+    "execute as @s at @s run particle minecraft:enchant ~ ~2 ~ 1 0 1 0 100 force"],
+     "last_tick_commands": ["playsound minecraft:block.ender_chest.close master @a[distance=..10] ~ ~ ~ 10 0"],
      "commands": [
-         
+         "execute as @s in minecraft:overworld run tp @s ~ ~100 ~"
      ],
      "conditions": {
          "enabling": [
@@ -69,16 +79,17 @@
                          "allow_scrolling_when_crouching": true
                         }
          ],
-         "unlocking": [        {
+         "unlocking": [             {
+                   "type": "palladium:and",
+                   "conditions": [ {
                          "type": "palladium:dimension",
                          "dimension": "fsang:pocket_dimension"
-         }, 
-                  {
-                   "type": "palladium:not",
-                   "conditions": [{
-                       "type": "palladium:crouching"
-                   }]
-                  }
+         }, {
+             "type": "fsang:block_search",
+             "block_id": "minecraft:dark_oak_door",
+             "search_radius": 1
+         }   ]
+                  }  
                         
          ]
      }
@@ -86,13 +97,13 @@
  "dimstorage": {
      "type": "fsang:ender_chest",
      "icon": "minecraft:ender_chest",
-     "title": "Store",
+     "title": "Store items",
      "bar_color": "yellow",
      "hidden": false,
      "hidden_in_bar": true,
      "list_index": 0,
      "gui_position": "null",
-     "description": "Store items inside of the House.",
+     "description": "Right click",
      "conditions": {
          "enabling": [          {
                    "type": "palladium:action",
@@ -101,10 +112,15 @@
                    "needs_empty_hand": false,
                    "allow_scrolling_when_crouching": true
                   }],
-         "unlocking": [
-                        {
-                         "type": "palladium:crouching"
-                        }
+         "unlocking": [ 
+                   {
+                    "type": "palladium:not",
+                    "conditions": [{
+                        "type": "fsang:block_search",
+                        "block_id": "minecraft:dark_oak_door",
+                        "search_radius": 1
+                    }]
+                   }
          ]
      }
  }

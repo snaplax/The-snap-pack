@@ -1,0 +1,202 @@
+{
+    "name": "Tome of Creation",
+    "persistent_data": true,
+    "background": "minecraft:textures/block/gold_block.png",
+    "icon": "snappack:textures/item/tomeofcreation.png",
+    "gui_display_type": "tree",
+    "abilities": {
+"holyknuckleduster": {
+    "type": "palladium:command",
+    "icon": "minecraft:command_block",
+    "title": "Holy Knuckle Duster",
+    "bar_color": "light_gray",
+    "hidden": false,
+    "hidden_in_bar": true,
+    "list_index": -1,
+    "gui_position": [9,0],
+    "description": "null",
+    "first_tick_commands": [],
+    "last_tick_commands": [],
+    "commands": [
+        "give @s snappack:holyknuckleduster{Enchantments:[{lvl:10,id:smite},{lvl:1,id:vanishing_curse}]}",
+        "ability lock @s snappack:tome_of_creation holyknuckleduster",
+        "ability lock @s snappack:tome_of_creation knuckledusterbuildup1",
+        "ability lock @s snappack:tome_of_creation knuckledusterbuildup2",
+        "ability lock @s snappack:tome_of_creation knuckledusterbuildup3"
+    ],
+    "conditions": {
+        "enabling": [],
+        "unlocking": [           
+                     {
+                        "type": "palladium:item_buyable",
+                        "ingredient": {
+                            "item": "minecraft:gold_ingot"
+                        },
+                        "amount": 6
+                    }, {
+                                            "type": "palladium:ability_unlocked",
+                                            "power": "snappack:tome_of_creation",
+                                            "ability": "knuckledusterbuildup3"
+                                        }
+                     
+                   
+                ]
+    }
+}, "knuckledusterbuildup1":{
+        "type": "palladium:dummy",
+        "icon": "minecraft:glowstone",
+        "title": "8 Glowstone Dust",
+        "bar_color": "light_gray",
+        "hidden": false,
+        "hidden_in_bar": true,
+        "list_index": -1,
+        "gui_position": [10,1],
+        "description": "null",
+        "conditions": {
+            "enabling": [],
+            "unlocking": [
+                {"type": "palladium:item_buyable",
+                        "ingredient": {
+                            "item": "minecraft:glowstone_dust"
+                        },
+                        "amount":8}
+                    ]
+                       
+        }
+    },"knuckledusterbuildup2":{
+        "type": "palladium:dummy",
+        "icon": "minecraft:glowstone",
+        "title": "24 Rotten Flesh",
+        "bar_color": "light_gray",
+        "hidden": false,
+        "hidden_in_bar": true,
+        "list_index": -1,
+        "gui_position": [8,1],
+        "description": "null",
+        "conditions": {
+            "enabling": [],
+            "unlocking": [
+                {"type": "palladium:item_buyable",
+                        "ingredient": {
+                            "item": "minecraft:rotten_flesh"
+                        },
+                        "amount":24}
+                    ]
+                       
+        }
+    },"knuckledusterbuildup3":{
+        "type": "palladium:dummy",
+        "icon": "minecraft:glowstone",
+        "title": "3 Iron nuggets",
+        "bar_color": "light_gray",
+        "hidden": false,
+        "hidden_in_bar": true,
+        "list_index": -1,
+        "gui_position": [9,1],
+        "description": "null",
+        "conditions": {
+            "enabling": [],
+            "unlocking": [{
+                                            "type": "palladium:ability_unlocked",
+                                            "power": "snappack:tome_of_creation",
+                                            "ability": "knuckledusterbuildup1"
+                                        }, {
+                                            "type": "palladium:ability_unlocked",
+                                            "power": "snappack:tome_of_creation",
+                                            "ability": "knuckledusterbuildup2"
+                                        },
+                 {
+                                    
+                                        "type":"palladium:item_buyable",
+                                         "ingredient":{
+                                        "item": "minecraft:iron_nugget"},
+                                        "amount":3}
+                                         
+                    ]
+                       
+        }
+    },
+"mysteriouskey":{"type": "palladium:command",
+    "icon": "minecraft:command_block",
+    "title": "Mysterious Key",
+    "bar_color": "light_gray",
+    "hidden": false,
+    "hidden_in_bar": true,
+    "list_index": -1,
+    "gui_position": [5,0],
+    "description": "null",
+    "first_tick_commands": [],
+    "last_tick_commands": [],
+    "commands": [
+        "give @s snappack:mysterious_key",
+        "ability lock @s snappack:tome_of_creation mysteriouskey",
+        "ability lock @s snappack:tome_of_creation mysteriouskeybuildup1"
+    ],
+    "conditions": {
+        "enabling": [],
+        "unlocking": [        
+                    {
+                        "type": "palladium:item_buyable",
+                        "ingredient": {
+                            "item": "minecraft:netherite_scrap"
+                        },
+                        "amount":2
+                    }, {
+                                                    "type": "palladium:ability_unlocked",
+                                                    "power": "snappack:tome_of_creation",
+                                                    "ability": "mysteriouskeybuildup2"
+                                                }
+                ]
+    }
+
+    }, "mysteriouskeybuildup1":{
+        "type": "palladium:dummy",
+        "icon": "minecraft:glowstone",
+        "title": "16 Glowstone Dust",
+        "bar_color": "light_gray",
+        "hidden": false,
+        "hidden_in_bar": true,
+        "list_index": -1,
+        "gui_position": [6,1],
+        "description": "null",
+        "conditions": {
+            "enabling": [],
+            "unlocking": [
+                {"type": "palladium:item_buyable",
+                        "ingredient": {
+                            "item": "minecraft:glowstone_dust"
+                        },
+                        "amount":16}
+                    ]
+                       
+        }
+    }, "mysteriouskeybuildup2":{
+        "type": "palladium:dummy",
+        "icon": "minecraft:glowstone",
+        "title": "10 Copper Ingots",
+        "bar_color": "light_gray",
+        "hidden": false,
+        "hidden_in_bar": true,
+        "list_index": -1,
+        "gui_position": [5,1],
+        "description": "null",
+        "conditions": {
+            "enabling": [],
+            "unlocking": [
+                {"type": "palladium:item_buyable",
+                        "ingredient": {
+                            "item": "minecraft:copper_ingot"
+                        },
+                        "amount":10}, 
+                                                {
+                                                    "type": "palladium:ability_unlocked",
+                                                    "power": "snappack:tome_of_creation",
+                                                    "ability": "mysteriouskeybuildup1"
+                                                }
+                    ]
+                       
+        }
+    }
+}
+}
+

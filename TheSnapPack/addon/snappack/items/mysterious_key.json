@@ -4,9 +4,9 @@
   "rarity": "epic",
   "is_fire_resistant": true,
   "tooltip": [
-    "Mysterious Key",
+    "Open a Mysterious Door",
     {
-      "text": "Use this Item to open a Mysterious door",
+      "text": "Crouch and use on a Dark Oak door",
       "underlined": false,
       "color": "#FFFFFF"
     }
