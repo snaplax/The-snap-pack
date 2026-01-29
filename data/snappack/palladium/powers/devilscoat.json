@@ -1,0 +1,328 @@
+{
+    "name": "Devil's Coat",
+    "persistent_data": true,
+    "background": "minecraft:textures/block/brown_wool.png",
+    "icon": "snappack:textures/item/demonscoat.png",
+    "gui_display_type": "tree",
+    "abilities": {
+"render": {
+    "type": "palladium:render_layer",
+    "icon": "snappack:textures/item/demonscoat.png",
+    "title": "null",
+    "bar_color": "light_gray",
+    "hidden": true,
+    "hidden_in_bar": true,
+    "list_index": -1,
+    "gui_position": "null",
+    "description": "null",
+    "render_layer": "snappack:demonscoat",
+    "conditions": {
+        "enabling": [],
+        "unlocking": []
+    }
+}, "unequipcoat":{
+    "type": "palladium:command",
+    "icon": "snappack:textures/item/demonscoat.png",
+    "title": "Unequip Coat",
+    "bar_color": "light_gray",
+    "hidden": false,
+    "hidden_in_bar": true,
+    "list_index": -1,
+    "gui_position": [0, 0],
+    "description": "null",
+    "first_tick_commands": [],
+    "last_tick_commands": [],
+    "commands": [
+        "superpower remove snappack:devilscoat @s",
+        "ability lock @s snappack:devilscoat unequipcoat",
+        "give @s snappack:devilcoat 1"
+        
+    ],
+    "conditions": {
+        "enabling": [],
+        "unlocking": [ 
+                    {
+                        "type": "palladium:item_buyable",
+                        "ingredient": {
+                            "item": "minecraft:leather"
+                        },
+                        "amount": 0
+                    }
+                ]
+    }
+},"fallres":{
+    "type": "palladium:damage_immunity",
+    "icon": "minecraft:potion",
+    "title": "null",
+    "bar_color": "light_gray",
+    "hidden": true,
+    "hidden_in_bar": true,
+    "list_index": -1,
+    "gui_position": "null",
+    "description": "null",
+    "damage_sources": [
+        "minecraft:is_fall"
+    ],
+    "conditions": {
+        "enabling": [        {
+                    "type": "fsang:ground_distance",
+                    "min": 1,
+                    "max": 5
+                }],
+        "unlocking": []
+    }
+},"fireres":{
+    "type": "palladium:damage_immunity",
+    "icon": "minecraft:potion",
+    "title": "null",
+    "bar_color": "light_gray",
+    "hidden": true,
+    "hidden_in_bar": true,
+    "list_index": -1,
+    "gui_position": "null",
+    "description": "null",
+    "damage_sources": [
+        "minecraft:is_fire"
+    ],
+    "conditions": {
+        "enabling": [       ],
+        "unlocking": []
+    }
+}, "baseArmour":{
+    "type": "palladium:attribute_modifier",
+    "icon": "minecraft:iron_chestplate",
+    "title": "null",
+    "bar_color": "light_gray",
+    "hidden": true,
+    "hidden_in_bar": true,
+    "list_index": -1,
+    "gui_position": "null",
+    "description": "null",
+    "attribute": "minecraft:generic.armor",
+    "amount": 4,
+    "operation": "0",
+    "uuid": "84896e5a-a988-4901-b4cc-205e4897c81a",
+    "conditions": {
+        "enabling": [],
+        "unlocking": []
+    }
+}, "basetoughness": {
+    "type": "palladium:attribute_modifier",
+    "icon": "minecraft:leather_chestplate",
+    "title": "Upgrade 1",
+    "bar_color": "light_gray",
+    "hidden": true,
+    "hidden_in_bar": true,
+    "list_index": -1,
+    "gui_position": "null",
+    "description": "null",
+    "attribute": "minecraft:generic.armor_toughness",
+    "amount": 2,
+    "operation": 0,
+    "uuid": "9c05aef6-ba2a-480c-a08e-b899b5082d4c",
+    "conditions": {
+        "enabling": [],
+        "unlocking": []
+    }
+}, "upgrade1": {
+    "type": "palladium:command",
+    "icon": "minecraft:golden_chestplate",
+    "title": "A Favor",
+    "bar_color": "light_gray",
+    "hidden": false,
+    "hidden_in_bar": false,
+    "list_index": -1,
+    "gui_position": [0, -2],
+    "description": "The coat now absorbs consective amounts of damage. At the cost of hunger",
+    "first_tick_commands": [],
+    "last_tick_commands": [],
+    "commands": [
+        "effect give @s resistance 2 0 true", "effect give @s hunger 1 25 true", "effect give @s regeneration 1 2 true" 
+    ],
+    "conditions": {
+        "enabling": [            {
+                    "type": "palladium:and",
+                    "conditions": [{
+                    "type": "snappack:is_hurt",
+                    "min_damage": 3
+                }, {
+                    "type": "palladium:not",
+                    "conditions": [{
+                    "type": "snappack:has_hunger",
+                    "min_hunger": 0,
+                    "max_hunger": 1
+                }]
+                }]
+                }           
+                ],
+        "unlocking": [        {
+                    "type": "palladium:item_buyable",
+                    "ingredient": {
+                        "item": "minecraft:rotten_flesh"
+                    },
+                    "amount": 192
+                }, {
+                                    "type": "palladium:ability_unlocked",
+                                    "ability": "adrenaline"
+                                }]
+    }
+},"upgrade2": {
+    "type": "palladium:command",
+    "icon": "minecraft:iron_chestplate",
+    "title": "Begruding Connection",
+    "bar_color": "light_gray",
+    "hidden": false,
+    "hidden_in_bar": false,
+    "list_index": -1,
+    "gui_position": [0, -3],
+    "description": "The coat absorbs even more damage from consecutive blows",
+    "first_tick_commands": [],
+    "last_tick_commands": [],
+    "commands": [
+        "effect give @s resistance 2 1 true", "effect give @s hunger 1 30 true",
+        "effect give @s regeneration 1 3 true" 
+    ],
+    "conditions": {
+        "enabling": [              {
+                    "type": "palladium:and",
+                    "conditions": [{
+                    "type": "snappack:is_hurt",
+                    "min_damage": 6
+                }, {
+                    "type": "palladium:not",
+                    "conditions": [{
+                        "type": "snappack:has_hunger",
+                        "min_hunger": 0,
+                        "max_hunger": 1
+                    }]
+                }]
+                }   
+                ],
+        "unlocking": [        {
+                    "type": "palladium:item_buyable",
+                    "ingredient": {
+                        "item": "minecraft:bone"
+                    },
+                    "amount": 192
+                },                 {
+                                    "type": "palladium:ability_unlocked",
+                                    "ability": "upgrade1"
+                                }]
+    }
+}, "upgrade3": {
+    "type": "palladium:command",
+    "icon": "minecraft:diamond_chestplate",
+    "title": "Friends?",
+    "bar_color": "light_gray",
+    "hidden": false,
+    "hidden_in_bar": false,
+    "list_index": -1,
+    "gui_position": [0, -4],
+    "description": "The coat absorbs high damaging consecutive blows",
+    "first_tick_commands": [],
+    "last_tick_commands": [],
+    "commands": [
+        "effect give @s resistance 2 2 true", "effect give @s hunger 1 35 true",
+        "effect give @s regeneration 1 4 true" 
+    ],
+    "conditions": {
+        "enabling": [              {
+                    "type": "palladium:and",
+                    "conditions": [{
+                    "type": "snappack:is_hurt",
+                    "min_damage": 8
+                }, {
+                    "type": "palladium:not",
+                    "conditions": [{
+                        "type": "snappack:has_hunger",
+                        "min_hunger": 0,
+                        "max_hunger": 1
+                    }]
+                }]
+                }, {
+                                    "type": "palladium:ability_unlocked",
+                                    "ability": "upgrade2"
+                                }   
+                ],
+        "unlocking": [        {
+                    "type": "palladium:item_buyable",
+                    "ingredient": {
+                        "item": "minecraft:blaze_rod"
+                    },
+                    "amount": 128
+                }]
+    }
+}, "upgrade4": {
+    "type": "palladium:command",
+    "icon": "minecraft:netherite_chestplate",
+    "title": "Best Pals",
+    "bar_color": "light_gray",
+    "hidden": false,
+    "hidden_in_bar": false,
+    "list_index": -1,
+    "gui_position": [0, -5],
+    "description": "The coat absorbs even more high damaging consecutive blows",
+    "first_tick_commands": [],
+    "last_tick_commands": [],
+    "commands": [
+        "effect give @s resistance 1 3 true", "effect give @s hunger 1 40 true",
+        "effect give @s regeneration 1 4 true" 
+    ],
+    "conditions": {
+        "enabling": [              {
+                    "type": "palladium:and",
+                    "conditions": [{
+                    "type": "snappack:is_hurt",
+                    "min_damage": 10
+                }, {
+                    "type": "palladium:not",
+                    "conditions": [{
+                        "type": "snappack:has_hunger",
+                        "min_hunger": 0,
+                        "max_hunger": 1
+                    }]
+                }]
+                }, {
+                                    "type": "palladium:ability_unlocked",
+                                    "ability": "upgrade3"
+                                }   
+                ],
+        "unlocking": [        {
+                    "type": "palladium:item_buyable",
+                    "ingredient": {
+                        "item": "minecraft:ghast_tear"
+                    },
+                    "amount": 16
+                }]
+    }
+}, "adrenaline":{
+    "type": "palladium:command",
+    "icon": "minecraft:beetroot_soup",
+    "title": "Self Preservation",
+    "bar_color": "light_gray",
+    "hidden": false,
+    "hidden_in_bar": true,
+    "list_index": -1,
+    "gui_position": [0, -1],
+    "description": "When hit the coat administers a surge of adrenaline",
+    "first_tick_commands": [],
+    "last_tick_commands": [],
+    "commands": [
+        "effect give @s strength 5 0 true", "effect give @s speed 7 0 true", "effect give @s jump_boost 5 1 true"
+    ],
+    "conditions": {
+        "enabling": [{
+                    "type": "snappack:is_hurt",
+                    "min_damage": 2
+                }],
+        "unlocking": [{
+                    "type": "palladium:item_buyable",
+                    "ingredient": {
+                        "item": "minecraft:spider_eye"
+                    },
+                    "amount": 64
+                }]
+    }
+}
+    }
+}

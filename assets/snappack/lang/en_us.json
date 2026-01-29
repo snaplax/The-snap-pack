@@ -1,0 +1,16 @@
+{
+    "pack.snappack.name": "The SnapPack",
+    "itemGroup.snappack.snapmagicitems": "SnapPack Magic Items",
+    "item.snappack.mysterious_key": "Mysterious Key",
+    "item.snappack.holyknuckleduster": "Holy Knuckle Duster",
+    "item.snappack.holybible": "Hell's Full Bible",
+    "item.snappack.tomeofcreation": "Tome of Creation",
+    "item.snappack.spearofdestiny": "The Spear of Destiny",
+    "item.snappack.devilcoat": "Devil's Coat",
+    "item.snappack.book_of_demons": "Book of Demons",
+    "item.snappack.tabletofcleansing": "Tablet of Cleansing",
+    "itemGroup.snappack.snappowers": "SnapPack Powers",
+"itemGroup.snappack.snapcraftingingredients": "SnapPack Misc Items",
+    "item.snappack.flavorsomefish": "Extra Flavorsome Fish",
+    "item.snappack.book_of_spells": "Book of Spells"
+}

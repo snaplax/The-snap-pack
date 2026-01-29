@@ -1,0 +1,17 @@
+{
+    "type": "palladium:sword",
+    "max_stack_size": 1,
+  "rarity": "epic",
+  "is_fire_resistant": true,
+  "tier": "minecraft:netherite",
+  "base_damage": 1000,
+  "attack_speed": -3.5,
+  "tooltip": [
+    "The Holy Lance",
+    {
+      "text": "The Blood of Christ",
+      "underlined": false,
+      "color": "#A30B0B"
+    }
+  ]
+}

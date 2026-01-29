@@ -1,0 +1,36 @@
+{
+    "name": "equipcoat",
+    "persistent_data": true,
+    "background": "minecraft:textures/block/white_wool.png",
+    "icon": "minecraft:wither_skeleton_skull",
+    "gui_display_type": "list",
+    "abilities": {
+ "devilcoat":{
+     "type": "palladium:command",
+     "icon": "minecraft:command_block",
+     "title": "null",
+     "bar_color": "light_gray",
+     "hidden": true,
+     "hidden_in_bar": true,
+     "list_index": -1,
+     "gui_position": "null",
+     "description": "null",
+     "first_tick_commands": [],
+     "last_tick_commands": [],
+     "commands": [
+         "superpower add snappack:devilscoat @s",
+         "clear @s snappack:devilcoat 1"
+     ],
+     "conditions": {
+         "enabling": [         {
+                   "type": "palladium:action",
+                   "cooldown": 0,
+                   "key_type": "right_click",
+                   "needs_empty_hand": false,
+                   "allow_scrolling_when_crouching": true
+                  }],
+         "unlocking": []
+     }
+ }
+    }
+}

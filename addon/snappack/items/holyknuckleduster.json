@@ -1,0 +1,17 @@
+{
+    "type": "palladium:sword",
+    "max_stack_size": 1,
+  "rarity": "common",
+  "is_fire_resistant": true,
+  "tier": "minecraft:diamond",
+  "base_damage": 1,
+  "attack_speed": -1.5,
+  "tooltip": [
+    "Fiat iustita, et pereat mundus",
+    {
+      "text": "Let justice be done, and let the world perish.",
+      "underlined": false,
+      "color": "#FFFFFF"
+    }
+  ]
+}

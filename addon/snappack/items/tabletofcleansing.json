@@ -1,0 +1,9 @@
+{
+    "type": "palladium:default",
+    "max_stack_size": 1,
+  "rarity": "common",
+  "is_fire_resistant": false,
+  "tooltip": [
+    "Use this tablet to cleanse yourself of all Snappack Powers"
+  ]
+}
