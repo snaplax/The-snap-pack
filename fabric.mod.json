@@ -1,0 +1,13 @@
+{
+    "schemaVersion": 1,
+    "authors": [
+        "FoxyDucky & Snaplax"
+    ],
+    "environment": "*",
+    "id": "snappack",
+    "version": "1.0.0",
+    "name": "The SnapPack",
+    "description": "The Ultimate collection of superpowers for Palladium",
+    "icon": "SnappackLogo.png",
+    "license": "All rights reserved"
+}

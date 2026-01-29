@@ -1,0 +1,8 @@
+{
+    "pack": {
+        "id": "snappack",
+        "pack_format": 15,
+        "description": "The Ultimate Collection of superpowers for palladium",
+        "version": "1.0.0"
+    }
+}

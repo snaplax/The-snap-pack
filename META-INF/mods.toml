@@ -1,0 +1,21 @@
+modLoader="lowcodefml"
+showAsResourcePack = false
+loaderVersion="[47,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="snappack"
+version="1.0.0"
+logoFile = "SnappackLogo.png"
+logoBlur = false
+displayName="The SnapPack"
+description='''
+The Ultimate collection of Palladium Superpowers
+'''
+
+[[dependencies.snappack]]
+modId = "palladium"
+mandatory = true
+versionRange = "[4.4.1,)"
+ordering = "NONE"
+side = "BOTH"
